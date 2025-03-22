@@ -31,9 +31,19 @@ namespace ProductApps
         {
             try
             {
-                cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
-                cProduct.calTotalPayment();
-                totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
+                //cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
+                //cProduct.calTotalPayment();
+                //totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
+
+
+                int quantity = Convert.ToInt32(quantityTextBox.Text.Trim());
+                decimal price = Convert.ToDecimal(priceTextBox.Text.Trim());
+                decimal total = price * quantity;
+                decimal totalCharge = total + 25;
+                
+
+                totalChargeTextBlock.Text = total.ToString();
+                totalPaymentTextBlock.Text = Convert.ToString(totalCharge);
             }
             catch (FormatException)
             {
@@ -47,6 +57,7 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
+            totalChargeTextBlock.Text = "";
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
