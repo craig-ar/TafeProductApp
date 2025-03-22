@@ -41,10 +41,12 @@ namespace ProductApps
                 decimal total = price * quantity;
                 decimal totalCharge = total + 25;
                 decimal addWrap = totalCharge + 5;
+                decimal addGst = addWrap * 1.1m;
 
                 totalChargeTextBlock.Text = total.ToString();
                 totalPaymentTextBlock.Text = Convert.ToString(totalCharge);
                 addWrapTextBlock.Text = addWrap.ToString();
+                gstTextBlock.Text = addGst.ToString();
             }
             catch (FormatException)
             {
