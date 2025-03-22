@@ -40,10 +40,11 @@ namespace ProductApps
                 decimal price = Convert.ToDecimal(priceTextBox.Text.Trim());
                 decimal total = price * quantity;
                 decimal totalCharge = total + 25;
-                
+                decimal addWrap = totalCharge + 5;
 
                 totalChargeTextBlock.Text = total.ToString();
                 totalPaymentTextBlock.Text = Convert.ToString(totalCharge);
+                addWrapTextBlock.Text = addWrap.ToString();
             }
             catch (FormatException)
             {
